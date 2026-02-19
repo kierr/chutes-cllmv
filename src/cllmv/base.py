@@ -4,27 +4,10 @@ import os
 
 logger = logging.getLogger(__name__)
 
-_SEARCH_PATHS = [
-    "/usr/local/lib/chutes-aegis.so",
-    "/usr/lib/chutes-aegis.so",
-    "/opt/aegis/chutes-aegis.so",
-]
-
-
-def _find_lib() -> str | None:
-    """Search for chutes-aegis.so in env var or standard system paths."""
-    env = os.environ.get("AEGIS_LIB_PATH")
-    if env and os.path.exists(env):
-        return env
-    for path in _SEARCH_PATHS:
-        if os.path.exists(path):
-            return path
-    return None
-
 
 class ChutesLLMVerifier:
     def __init__(self, lib_path: str | None = None):
-        resolved = lib_path or _find_lib()
+        resolved = lib_path or "/usr/local/lib/chutes-aegis.so"
         if not resolved or not os.path.exists(resolved):
             logger.warning("chutes-aegis.so not found; cllmv running in stub mode")
             self.lib = None
