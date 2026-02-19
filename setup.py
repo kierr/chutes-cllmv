@@ -6,7 +6,7 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md"))
 
 setup(
     name="cllmv",
-    version="0.1.0",
+    version="0.1.1",
     description="Chutes fast LLM verification.",
     long_description=long_description,
     long_description_content_type="text/markdown",
