@@ -6,7 +6,7 @@ with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md"))
 
 setup(
     name="cllmv",
-    version="0.0.7",
+    version="0.1.2",
     description="Chutes fast LLM verification.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -15,9 +15,6 @@ setup(
     license_expression="MIT",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    package_data={
-        "cllmv": ["lib/*.so"],
-    },
     install_requires=[
         "setuptools>=0.75",
     ],
